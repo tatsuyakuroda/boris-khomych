@@ -8,6 +8,9 @@ import type { Project } from "@/lib/projects";
 import ShinyText from "@/components/ShinyText";
 import ChromaGrid, { type ChromaGridItem } from "@/components/ChromaGrid";
 
+/** Max skills shown on preview cards so layout stays consistent across projects */
+const MAX_PREVIEW_SKILLS = 6;
+
 const CHROMA_COLORS = [
   { borderColor: "#2768FF", gradient: "linear-gradient(145deg, #2768FF, #1c1e22)" },
   { borderColor: "#C5A059", gradient: "linear-gradient(180deg, #C5A059, #1c1e22)" },
@@ -27,7 +30,7 @@ function projectToChromaItem(project: Project, index: number): ChromaGridItem & 
     image: project.image,
     title: project.title,
     subtitle: project.impact,
-    stack: project.stack,
+    stack: project.stack.slice(0, MAX_PREVIEW_SKILLS),
     borderColor: colors.borderColor,
     gradient: colors.gradient,
     data: project,

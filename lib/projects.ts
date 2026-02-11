@@ -8,71 +8,71 @@ export type ProjectMedia =
 export type ProjectFeature = { title: string; items: readonly string[] };
 
 export const PROJECTS = [
-  {
-    slug: "claims-ai-platform",
-    title: "Claims AI Platform (Healthcare)",
-    impact:
-      "Automated medical document extraction & chart audits with explainable AI workflows.",
-    overview:
-      "Claims AI Platform is an end‑to‑end system that automates the extraction, validation, and auditing of medical documentation for healthcare organizations. It transforms unstructured clinical data into structured results, flags discrepancies, and explains decisions using transparent reasoning. The platform reduces manual review workload by 70–85%, enabling faster claims processing and higher accuracy.",
-    stack: ["Next.js", "Node", "AWS", "Docker", "TypeScript", "OCR", "Open AI integration", "React"],
-    image: "/projects/images/claim-ai.png",
-    medias: [
-      { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio.mp4" },
-      { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio-2.mp4" },
-    ],
-    features: [
-      {
-        title: "Document Intake & OCR Pipeline",
-        items: [
-          "Upload PDFs, images, faxes, or EMR exports",
-          "Multi‑stage OCR with noise reduction",
-          "Automatic page classification (H&P, Progress Note, Discharge Summary, etc.)",
-          "Structured JSON output for downstream AI modules",
-        ],
-      },
-      {
-        title: "AI‑Driven Claims Audit",
-        items: [
-          "LLM agents evaluate documentation against payer rules",
-          "Detect missing documentation, coding errors, expired signatures, mismatches",
-          "Explainable reasoning: each AI finding includes human‑readable justification",
-        ],
-      },
-      {
-        title: "Chart Consistency Scoring",
-        items: [
-          "Cross‑check diagnosis, orders, labs, vitals, physician notes",
-          "Detect contradictions or incomplete evidence",
-          "Assign quality score to each chart packet",
-        ],
-      },
-      {
-        title: "Coding Suggestion Engine",
-        items: [
-          "Extract ICD‑10 / CPT / HCPCS candidates",
-          "Provide coded justifications",
-          "Highlight missing elements needed to support a code",
-        ],
-      },
-      {
-        title: "Human‑in‑the‑loop Review",
-        items: [
-          "Reviewer dashboard",
-          "Accept/reject AI findings",
-          "Auto‑generate report summaries",
-        ],
-      },
-      {
-        title: "Secure Infrastructure",
-        items: [
-          "Role‑based access control",
-          "Encrypted document storage (AWS S3, KMS)",
-          "Audit logs for every AI action",
-        ],
-      },
-    ] as const,
-  },
+  // {
+  //   slug: "claims-ai-platform",
+  //   title: "Claims AI Platform (Healthcare)",
+  //   impact:
+  //     "Automated medical document extraction & chart audits with explainable AI workflows.",
+  //   overview:
+  //     "Claims AI Platform is an end‑to‑end system that automates the extraction, validation, and auditing of medical documentation for healthcare organizations. It transforms unstructured clinical data into structured results, flags discrepancies, and explains decisions using transparent reasoning. The platform reduces manual review workload by 70–85%, enabling faster claims processing and higher accuracy.",
+  //   stack: ["Next.js", "Node", "AWS", "Docker", "TypeScript", "OCR", "Open AI integration", "React"],
+  //   image: "/projects/images/claim-ai.png",
+  //   medias: [
+  //     { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio.mp4" },
+  //     { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio-2.mp4" },
+  //   ],
+  //   features: [
+  //     {
+  //       title: "Document Intake & OCR Pipeline",
+  //       items: [
+  //         "Upload PDFs, images, faxes, or EMR exports",
+  //         "Multi‑stage OCR with noise reduction",
+  //         "Automatic page classification (H&P, Progress Note, Discharge Summary, etc.)",
+  //         "Structured JSON output for downstream AI modules",
+  //       ],
+  //     },
+  //     {
+  //       title: "AI‑Driven Claims Audit",
+  //       items: [
+  //         "LLM agents evaluate documentation against payer rules",
+  //         "Detect missing documentation, coding errors, expired signatures, mismatches",
+  //         "Explainable reasoning: each AI finding includes human‑readable justification",
+  //       ],
+  //     },
+  //     {
+  //       title: "Chart Consistency Scoring",
+  //       items: [
+  //         "Cross‑check diagnosis, orders, labs, vitals, physician notes",
+  //         "Detect contradictions or incomplete evidence",
+  //         "Assign quality score to each chart packet",
+  //       ],
+  //     },
+  //     {
+  //       title: "Coding Suggestion Engine",
+  //       items: [
+  //         "Extract ICD‑10 / CPT / HCPCS candidates",
+  //         "Provide coded justifications",
+  //         "Highlight missing elements needed to support a code",
+  //       ],
+  //     },
+  //     {
+  //       title: "Human‑in‑the‑loop Review",
+  //       items: [
+  //         "Reviewer dashboard",
+  //         "Accept/reject AI findings",
+  //         "Auto‑generate report summaries",
+  //       ],
+  //     },
+  //     {
+  //       title: "Secure Infrastructure",
+  //       items: [
+  //         "Role‑based access control",
+  //         "Encrypted document storage (AWS S3, KMS)",
+  //         "Audit logs for every AI action",
+  //       ],
+  //     },
+  //   ] as const,
+  // },
   {
     slug: "novmuser-ai",
     title: "Novmuser AI (AI Novel Writing Platform)",
