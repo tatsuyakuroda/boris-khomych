@@ -75,25 +75,26 @@ function MediaItem({
 
 export default function ProjectMedias({ medias }: ProjectMediasProps) {
   const [index, setIndex] = useState(0);
+  const length = medias?.length ?? 0;
 
-  if (!medias?.length) return null;
-  if (medias.length === 1) {
+  const goPrev = useCallback(() => {
+    setIndex((i) => (i - 1 + length) % length);
+  }, [length]);
+
+  const goNext = useCallback(() => {
+    setIndex((i) => (i + 1) % length);
+  }, [length]);
+
+  if (!length) return null;
+  if (length === 1) {
     return (
       <div className="flex flex-col gap-4">
-        <MediaItem media={medias[0]} onContextMenu={preventMediaContextMenu} />
+        <MediaItem media={medias![0]} onContextMenu={preventMediaContextMenu} />
       </div>
     );
   }
 
-  const goPrev = useCallback(() => {
-    setIndex((i) => (i - 1 + medias.length) % medias.length);
-  }, [medias.length]);
-
-  const goNext = useCallback(() => {
-    setIndex((i) => (i + 1) % medias.length);
-  }, [medias.length]);
-
-  const current = medias[index];
+  const current = medias![index];
 
   return (
     <div className="relative flex flex-col gap-4">
