@@ -146,7 +146,7 @@ export default function ProjectMedias({ medias }: ProjectMediasProps) {
       </div>
 
       <div className="flex items-center justify-center gap-2">
-        {medias.map((_, i) => (
+        {medias!.map((_, i) => (
           <button
             key={i}
             type="button"
