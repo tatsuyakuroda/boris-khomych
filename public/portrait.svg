@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 288" fill="none" aria-hidden="true">
+  <rect width="288" height="288" fill="#2a2d33"/>
+  <circle cx="144" cy="112" r="48" stroke="#3c3f46" stroke-width="2" fill="none"/>
+  <path d="M72 288 L72 200 Q72 160 144 160 Q216 160 216 200 L216 288 Z" fill="#3c3f46"/>
+  <text x="144" y="260" font-family="system-ui, sans-serif" font-size="14" fill="#a4a7ac" text-anchor="middle">Portrait</text>
+</svg>

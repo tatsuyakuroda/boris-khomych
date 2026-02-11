@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design tokens — dark theme default */
+  --bg: #1c1e22;
+  --surface: #2a2d33;
+  --border: #3c3f46;
+  --text: #d7d9dd;
+  --muted: #a4a7ac;
+  --blue: #2768ff;
+  --gold: #c5a059;
+  --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /* Project card image overlay (configurable) */
+  --project-image-overlay-opacity: 0.65;
+  --project-image-overlay-opacity-hover: 0.55;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    min-width: 320px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  /* Split layout: on desktop only the right panel scrolls (home page only) */
+  @media (min-width: 1024px) {
+    html:has(.split-root),
+    body:has(.split-root) {
+      height: 100%;
+      overflow: hidden;
+    }
+  }
+
+  /* Hide scrollbar site-wide (scroll still works) */
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-bg text-text antialiased;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    min-width: 320px;
+  }
+
+  /* Focus outline: 2px ring in --blue, offset 2px */
+  *:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto w-full max-w-[1100px] px-4 sm:px-6;
+  }
+
+  /* Split-screen root: 50/50 on desktop, stacked on mobile */
+  .split-root {
+    @apply min-h-screen;
+  }
+
+  @media (min-width: 1024px) {
+    .split-root {
+      @apply flex min-w-0 overflow-hidden;
+    }
+  }
+
+  /* Reduced motion: no hover translate on cards */
+  @media (prefers-reduced-motion: reduce) {
+    .split-root [data-reduce-motion-hover] {
+      transform: none;
+    }
+  }
+
+  /* Hide scrollbar on split panels (still scrollable) */
+  .split-left,
+  .split-right {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .split-left::-webkit-scrollbar,
+  .split-right::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Project card image: dark theme overlay (theme token --bg) */
+  .project-card-image-wrap {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .project-card-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg);
+    opacity: var(--project-image-overlay-opacity);
+    pointer-events: none;
+    transition: opacity 0.25s var(--ease);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .project-card:hover .project-card-image-wrap::after,
+    .project-card:focus-within .project-card-image-wrap::after {
+      opacity: var(--project-image-overlay-opacity-hover);
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}

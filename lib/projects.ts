@@ -1,0 +1,264 @@
+/** Optional media for a project: images, self-hosted video, or YouTube embed */
+export type ProjectMedia =
+  | { type: "image"; src: string; alt?: string }
+  | { type: "video"; src: string }
+  | { type: "youtube"; id: string };
+
+/** Optional long-form overview and key features for a project case study */
+export type ProjectFeature = { title: string; items: readonly string[] };
+
+export const PROJECTS = [
+  {
+    slug: "claims-ai-platform",
+    title: "Claims AI Platform (Healthcare)",
+    impact:
+      "Automated medical document extraction & chart audits with explainable AI workflows.",
+    overview:
+      "Claims AI Platform is an end‑to‑end system that automates the extraction, validation, and auditing of medical documentation for healthcare organizations. It transforms unstructured clinical data into structured results, flags discrepancies, and explains decisions using transparent reasoning. The platform reduces manual review workload by 70–85%, enabling faster claims processing and higher accuracy.",
+    stack: ["Next.js", "Node", "AWS", "Docker", "TypeScript", "OCR", "Open AI integration", "React"],
+    image: "/projects/images/claim-ai.png",
+    medias: [
+      { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio.mp4" },
+      { type: "video", src: "/projects/claims-ai-platform/videos/claimai-portfolio-2.mp4" },
+    ],
+    features: [
+      {
+        title: "Document Intake & OCR Pipeline",
+        items: [
+          "Upload PDFs, images, faxes, or EMR exports",
+          "Multi‑stage OCR with noise reduction",
+          "Automatic page classification (H&P, Progress Note, Discharge Summary, etc.)",
+          "Structured JSON output for downstream AI modules",
+        ],
+      },
+      {
+        title: "AI‑Driven Claims Audit",
+        items: [
+          "LLM agents evaluate documentation against payer rules",
+          "Detect missing documentation, coding errors, expired signatures, mismatches",
+          "Explainable reasoning: each AI finding includes human‑readable justification",
+        ],
+      },
+      {
+        title: "Chart Consistency Scoring",
+        items: [
+          "Cross‑check diagnosis, orders, labs, vitals, physician notes",
+          "Detect contradictions or incomplete evidence",
+          "Assign quality score to each chart packet",
+        ],
+      },
+      {
+        title: "Coding Suggestion Engine",
+        items: [
+          "Extract ICD‑10 / CPT / HCPCS candidates",
+          "Provide coded justifications",
+          "Highlight missing elements needed to support a code",
+        ],
+      },
+      {
+        title: "Human‑in‑the‑loop Review",
+        items: [
+          "Reviewer dashboard",
+          "Accept/reject AI findings",
+          "Auto‑generate report summaries",
+        ],
+      },
+      {
+        title: "Secure Infrastructure",
+        items: [
+          "Role‑based access control",
+          "Encrypted document storage (AWS S3, KMS)",
+          "Audit logs for every AI action",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "novmuser-ai",
+    title: "Novmuser AI (AI Novel Writing Platform)",
+    impact:
+      "AI-powered writing companion for planning, generating, and managing long-form fiction with collaborative agent workflows.",
+    overview:
+      "Novmuser AI is an end‑to‑end AI writing platform focused on novel authors, helping them design story structure, generate chapters, and manage large manuscripts as modular content chunks. It combines AI agents, topic management, and real‑time content streaming to turn high‑level ideas into organized, editable prose while keeping full control in the writer's hands. The system supports iterative refinement, manual edits, and feedback loops so authors can move quickly from outline to complete draft while maintaining consistency across chapters and arcs.",
+    stack: [
+      "Next.js",
+      "Node.js",
+      "TypeScript",
+      "React",
+      "Python",
+      "OpenAI integration",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+      "WebSockets",
+    ],
+    image: "/projects/novmuser-ai/images/novmuserai-preview.png",
+    medias: [
+      { type: "video", src: "/projects/novmuser-ai/videos/novmuserai-promovideo.mp4" },
+    ],
+    features: [
+      {
+        title: "AI Agent & Virtual Writing Team",
+        items: [
+          "Simulated virtual writing team that collaboratively prepares and refines novel frameworks based on user input.",
+          "Multiple AI agents coordinate to fine‑tune plot structure, pacing, and character threads.",
+          "Real‑time adjustments to the novel design as the author changes direction or requirements.",
+          "Supports manual feedback and inline edits so writers can override or guide AI output at any point.",
+        ],
+      },
+      {
+        title: "Chapter Topic & Topic Point Management",
+        items: [
+          "Tools to design and manage chapter‑level topics and finer‑grained topic points for each scene or beat.",
+          "Live adjustment of topic structures to reshape chapters, reorder beats, or refine focus.",
+          "Progress tracking for each topic point to see what content has been generated or is pending.",
+          "Linking between topics and content chunks to maintain narrative consistency across the manuscript.",
+        ],
+      },
+      {
+        title: "AI Content Chunk Generation & Tracking",
+        items: [
+          "Automated generation of content chunks that align with specific topic points and chapter goals.",
+          "Real‑time streaming of chapter text so authors can watch the story being written as it emerges.",
+          "Status and quality tracking for each chunk, with support for regeneration when results are not satisfactory.",
+          "Full lifecycle support: initial AI generation, re‑generation, manual editing, and feedback‑driven refinement.",
+        ],
+      },
+      {
+        title: "Pricing & Credit System (Productization)",
+        items: [
+          "Subscription‑based Standard plan at $11.9/month with 6,000 credits (~300 AI generations) for active writers.",
+          "Feature set focused on AI‑powered novel preparation, AI‑based topic management, and content chunk handling with unlimited novel projects under one account.",
+          "Additional one‑time credit packs (5,000 / 10,000 / 30,000 credits) that never expire, usable on top of an active plan when intensive writing periods require more generations.",
+          "Roadmap support for higher‑tier Professional and Ultimate plans to scale with more demanding or professional users.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "rentana",
+    title: "Rentana (AI Revenue Intelligence for Multifamily)",
+    impact:
+      "AI-powered revenue intelligence platform that optimizes multifamily rent pricing, asset performance, and reporting with explainable, data-driven recommendations.",
+    overview:
+      "Rentana is an end‑to‑end revenue intelligence platform for multifamily operators that automates rent optimization, renewals pricing, amenity premiums, and reporting using portfolio-specific AI models. It ingests operational and market data, generates pricing and strategy recommendations, and surfaces clear, human-readable explanations so teams understand the \"why\" behind each decision. The platform is designed to boost revenue, occupancy, and efficiency while maintaining complete data privacy and minimizing implementation friction.",
+    stack: [
+      "Next.js",
+      "Node.js",
+      "React",
+      "TypeScript",
+      "Python",
+      "PostgreSQL",
+      "AWS (Lambda, RDS, S3, CloudFront)",
+      "Docker",
+      "REST APIs",
+      "Analytics & BI tooling",
+    ],
+    image: "/projects/rentana/images/renta-preview.png",
+    medias: [
+      { type: "video", src: "/projects/rentana/videos/rentana.mp4" },
+      { type: "image", src: "/projects/rentana/images/renta-media-1.png" },
+      { type: "image", src: "/projects/rentana/images/renta-media-2.png" },
+    ],
+    features: [
+      {
+        title: "AI-Driven Rent & Renewal Optimization",
+        items: [
+          "Portfolio-specific pricing recommendations for new leases and renewals at scale, tailored to each client's data and goals.",
+          "Dynamic adjustments based on emerging trends, demand signals, and property-level performance.",
+          "Transparent explanations with each recommendation so managers can quickly validate and act on pricing guidance.",
+        ],
+      },
+      {
+        title: "Amenity & Specials Optimization",
+        items: [
+          "Optimization of unit amenity pricing and concession/specials strategy using advanced analytics.",
+          "Insights into which amenities and specials are driving value versus eroding revenue.",
+          "Controls to align amenity premiums and specials with expiration, occupancy, and revenue targets.",
+        ],
+      },
+      {
+        title: "Expiration & Occupancy Strategy",
+        items: [
+          "Tools to help teams reach expiration and occupancy targets using simple, efficient controls backed by intelligent models.",
+          "Automated monitoring of portfolio trends so strategy can be proactively adjusted as conditions change.",
+        ],
+      },
+      {
+        title: "Reporting & Data Access",
+        items: [
+          "Creation and scheduling of recurring custom reports across properties and portfolios.",
+          "On-demand access to underlying data for deeper analysis and stakeholder reporting.",
+          "Modern, user-friendly interface that surfaces key insights without the complexity of legacy revenue management tools.",
+        ],
+      },
+      {
+        title: "Onboarding, Performance & Support",
+        items: [
+          "Rapid onboarding where new properties can launch and receive recommendations the same or next day.",
+          "Always-on delivery of new features and enhancements without disruptive upgrade cycles.",
+          "High-touch training and support, with a team that incorporates customer feedback quickly and helps operators execute their pricing strategy effectively.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "superyach",
+    title: "SuperYach (SuperYacht UNIWERSE)",
+    impact:
+      "Immersive 3D web platform that showcases superyachts in a unique digital space, combining innovative web technologies with high-end visual content.",
+    overview:
+      "SuperYacht UNIWERSE is an immersive digital experience platform—a unique web space where users explore luxury superyachts in a full three-dimensional environment. The platform integrates cutting-edge web technologies with rich, high-end visual content to deliver an engaging showcase for prestigious vessels. Visitors can navigate detailed 3D models, switch between exterior and interior views, access technical specifications and builder information, and control the experience with intuitive drag, zoom, and full-screen modes. Designed for marketing and discovery, it elevates superyacht presentation beyond static imagery into an interactive, memorable journey.",
+    stack: ["Next.js", "React", "TypeScript", "Three.js"],
+    image: "/projects/superyach/images/superyach-preview.png",
+    medias: [
+      { type: "video", src: "/projects/superyach/videos/SUPERYACH-3D.mp4" },
+      { type: "video", src: "/projects/superyach/videos/SUPERYACH-3D-1.mp4" },
+    ],
+    features: [
+      {
+        title: "Immersive 3D Environment",
+        items: [
+          "Unique three-dimensional web space built with modern 3D and web technologies for a distinctive digital experience.",
+          "High-fidelity rendering of superyachts on water with realistic lighting, reflections, and detail.",
+          "Combines innovative web tech and creative high-end visual content in a single, cohesive experience.",
+        ],
+      },
+      {
+        title: "Interactive Exploration",
+        items: [
+          "Multiple viewing modes: Tech Space for specifications, Interior for walkthroughs, and free Move and Full Screen exploration.",
+          "Yacht Controls, Drag Controls, and Scroll Zoom for intuitive camera and model interaction.",
+          "Thumbnail galleries and view presets to jump between angles and featured yachts quickly.",
+        ],
+      },
+      {
+        title: "Rich Yacht Showcase",
+        items: [
+          "Detailed yacht profiles with builder credits, dimensions, and narrative descriptions (e.g. Nord by Lürssen).",
+          "Read More links and expandable content for deeper engagement and storytelling.",
+          "Multiple asset angles and media (images, video) to present each vessel comprehensively.",
+        ],
+      },
+      {
+        title: "Multimedia & Engagement",
+        items: [
+          "Integrated video playback for promotional and showcase content within the experience.",
+          "Clean, branded UI with clear navigation and controls that keep focus on the vessels.",
+          "Designed to appeal to a luxury audience while remaining accessible and easy to explore.",
+        ],
+      },
+    ] as const,
+  },
+  
+] as const;
+
+export type Project = (typeof PROJECTS)[number] & {
+  medias?: readonly ProjectMedia[];
+  overview?: string;
+  features?: readonly ProjectFeature[];
+};
+
+export function getProjectBySlug(slug: string): Project | undefined {
+  return PROJECTS.find((p) => p.slug === slug);
+}
