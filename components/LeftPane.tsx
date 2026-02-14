@@ -7,7 +7,7 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 const EASE = [0.2, 0.8, 0.2, 1];
 
 const BIO_PARTS = [
-  "Senior software engineer with over 10 years of experience building reliable systems across Europe and the US. I work with React, Next.js, Node.js, TypeScript, AWS, Docker, and 3D web tools.",
+  "Senior software engineer with over 5 years of experience building reliable systems across Europe and the US. I work with React, Next.js, Node.js, TypeScript, AWS, Docker, and 3D web tools.",
   "I care about clarity, stable systems, and clean, thoughtful design.",
 ];
 
@@ -49,7 +49,7 @@ export default function LeftPane() {
           <div className="relative aspect-square w-full max-w-[min(100%,22rem)] overflow-hidden rounded-2xl border border-[#3C3F46] bg-surface shadow-lg sm:max-w-none sm:aspect-auto sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 xl:h-[28rem] xl:w-[28rem]">
             <Image
               src="/portrait.jpg"
-              alt="Andrii Palamarchuk — portrait"
+              alt="Juan Carlos Rios Gamez — portrait"
               width={448}
               height={448}
               priority
@@ -78,14 +78,14 @@ export default function LeftPane() {
             {...fadeUp}
             transition={{ duration: 0.7, ease: EASE, delay: stagger * 1 }}
           >
-            Andrii Palamarchuk
+            Juan Carlos Rios Gamez
           </motion.h1>
           <motion.p
             className="text-gold text-lg font-medium"
             {...fadeUp}
             transition={{ duration: 0.7, ease: EASE, delay: stagger * 2 }}
           >
-            10+ Years Of Experience In Software Engineering
+            5+ Years Of Experience In Software Engineering
           </motion.p>
         </div>
       </div>

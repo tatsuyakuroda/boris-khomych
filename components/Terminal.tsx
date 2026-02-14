@@ -72,7 +72,7 @@ export default function Terminal() {
     >
       <div className="flex items-center justify-between border-b border-border bg-bg/50 px-4 py-3">
         <span className="text-muted">
-          andrii@portfolio:~{" "}
+          juan@portfolio:~{" "}
           <span role="img" aria-label="Ukrainian flag">
             🇺🇦
           </span>{" "}

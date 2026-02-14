@@ -1,6 +1,6 @@
-# andrii-portfolio
+# juan-portfolio
 
-Production-grade split-screen developer portfolio (Andrii Palamarchuk seed content). Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Framer Motion. Static export–ready.
+Production-grade split-screen developer portfolio (Juan Carlos Rios Gamez). Built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and Framer Motion. Static export–ready.
 
 **Layout:** 50/50 split on desktop (≥1024px): left = fixed intro + portrait + CTAs; right = scrollable Project Archive. On mobile: stacked, full-width, normal scroll.
 
@@ -9,7 +9,7 @@ Production-grade split-screen developer portfolio (Andrii Palamarchuk seed conte
 ## Folder tree (after refactor)
 
 ```
-andrii-portfolio/
+juan-portfolio/
 ├── app/
 │   ├── globals.css      ← split-root, desktop scroll containment, reduced-motion
 │   ├── layout.tsx       ← global styles only (fonts, metadata, skip link)
@@ -26,8 +26,8 @@ andrii-portfolio/
 │   ├── Section.tsx
 │   └── Terminal.tsx
 ├── public/
-│   ├── portrait.jpg           ← replace with your photo (or use Andrii.jpg and update LeftPane src)
-│   ├── Andrii_Palamarchuk_CV.pdf   ← add your CV here
+│   ├── portrait.jpg           ← left pane portrait (or use juan.png and update LeftPane src)
+│   ├── Juan_Carlos_Rios_Gamez_CV.pdf   ← add your CV here
 │   ├── favicon.svg
 │   └── …
 ├── .eslintrc.json
@@ -46,7 +46,7 @@ andrii-portfolio/
 ## Run commands
 
 ```bash
-cd andrii-portfolio
+cd juan-portfolio
 npm install
 npm run dev
 ```
@@ -64,8 +64,8 @@ Static export: `npm run build` → output in `out/`. Lint/format: `npm run lint`
 
 ## Where to replace portrait and CV
 
-- **Portrait:** Put your photo at `public/portrait.jpg`. The left pane uses `src="/portrait.jpg"`. If you already have `public/Andrii.jpg`, either copy/rename it to `portrait.jpg` or in `components/LeftPane.tsx` change the `Image` `src` to `"/Andrii.jpg"`.
-- **CV:** Put your PDF at `public/Andrii_Palamarchuk_CV.pdf`. The “Download CV” button in the left pane points to `/Andrii_Palamarchuk_CV.pdf`. To use a different filename, update the `href` in `LeftPane.tsx`.
+- **Portrait:** Put your photo at `public/portrait.jpg`. The left pane uses `src="/portrait.jpg"`. To use `juan.png`, put it in `public/` and in `components/LeftPane.tsx` set the `Image` `src` to `"/juan.png"`.
+- **CV:** Put your PDF at `public/Juan_Carlos_Rios_Gamez_CV.pdf`. The “Download CV” button in the left pane points to `/Juan_Carlos_Rios_Gamez_CV.pdf`. Point the Download CV link in `LeftPane.tsx` to that path if needed.
 
 ---
 
@@ -86,7 +86,7 @@ Add new objects to the array; cards render in order with the same stagger and ho
 From the project root:
 
 ```bash
-cd andrii-portfolio
+cd juan-portfolio
 npm install
 npm run dev
 ```
@@ -119,7 +119,7 @@ npm run format
 
 1. Push the repo to GitHub (or GitLab/Bitbucket).
 2. Go to [vercel.com](https://vercel.com) and sign in.
-3. **Add New Project** → import the `andrii-portfolio` repo.
+3. **Add New Project** → import the `juan-portfolio` repo.
 4. Leave **Framework Preset** as Next.js and **Root Directory** as `.`
 5. **Deploy**. Vercel will use `next build`; with `output: "export"` you get a static export automatically.
 
@@ -127,7 +127,7 @@ Or via CLI:
 
 ```bash
 npm i -g vercel
-cd andrii-portfolio
+cd juan-portfolio
 vercel
 ```
 
@@ -142,10 +142,10 @@ vercel --prod
 ## Where to drop assets and update content
 
 - **Portrait**  
-  The hero uses `public/Andrii.jpg`. Replace that file to update the portrait.
+  The hero uses `public/juan.png`. Replace that file to update the portrait.
 
 - **CV**  
-  Put your PDF in `public/Andrii_Palamarchuk_CV.pdf`. The “Download CV” link already points to `/Andrii_Palamarchuk_CV.pdf`.
+  Put your PDF in `public/Juan_Carlos_Rios_Gamez_CV.pdf`. Update the Download CV link in `LeftPane.tsx` if needed.
 
 - **Project list**  
   Edit the `PROJECTS` array in `components/Projects.tsx`. Each item has `title`, `impact`, and `stack` (array of strings). Add/remove entries and adjust copy as needed.

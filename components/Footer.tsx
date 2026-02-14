@@ -6,7 +6,7 @@ export default function Footer() {
     >
       <div className="container-custom flex flex-col items-center justify-between gap-4 sm:flex-row">
         <p className="text-muted text-sm m-0">
-          © {new Date().getFullYear()} Andrii Palamarchuk. Built with Next.js & Tailwind.
+          © {new Date().getFullYear()} Juan Carlos Rios Gamez. Built with Next.js & Tailwind.
         </p>
         <nav aria-label="Footer links">
           <a

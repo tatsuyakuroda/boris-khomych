@@ -15,14 +15,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Andrii Palamarchuk — Senior Software Engineer",
+  title: "Juan Carlos Rios Gamez — Senior Software Engineer",
   description:
-    "Ukrainian developer building reliable, scalable systems across Europe.",
+    "Developer building reliable, scalable systems.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Andrii Palamarchuk — Senior Software Engineer",
+    title: "Juan Carlos Rios Gamez — Senior Software Engineer",
     description:
-      "Ukrainian developer building reliable, scalable systems across Europe.",
+      "Developer building reliable, scalable systems.",
   },
 };
 
