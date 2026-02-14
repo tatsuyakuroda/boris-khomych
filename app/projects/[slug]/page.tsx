@@ -95,7 +95,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h2 className="text-muted mb-2 text-sm font-medium uppercase tracking-wide">
               Medias
             </h2>
-            <ProjectMedias medias={project.medias} />
+            <ProjectMedias medias={project.medias} layout={project.mediaLayout} />
           </div>
 
           <ProjectCaseStudyReveal

@@ -7,8 +7,8 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 const EASE = [0.2, 0.8, 0.2, 1];
 
 const BIO_PARTS = [
-  "Senior software engineer with over 5 years of experience building reliable systems across Europe and the US. I work with React, Next.js, Node.js, TypeScript, AWS, Docker, and 3D web tools.",
-  "I care about clarity, stable systems, and clean, thoughtful design.",
+  "Senior software engineer with over 5 years of experience building reliable systems across Europe and the US — from web apps to games. I work with React, Next.js, Node.js, TypeScript, AWS, Docker, 3D web tools, and game development with Unity, Unreal Engine, C#, and related tech.",
+  "I care about clarity, stable systems, clean design, and crafting engaging experiences whether on the web or in game development.",
 ];
 
 const ROTATE_INTERVAL_MS = 5500;

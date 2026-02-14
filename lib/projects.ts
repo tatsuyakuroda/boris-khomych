@@ -250,13 +250,46 @@ export const PROJECTS = [
       },
     ] as const,
   },
-  
+  {
+    slug: "game-gallery-overview",
+    title: "Game Gallery",
+    impact:
+      "A gallery of game projects and demos showcasing gameplay, mechanics, and visual style across multiple titles.",
+    overview:"",
+    stack: [
+      "C#",
+      "Unity",
+      "Firebase",
+      "PlayFab",
+      "Unreal Engine",
+      "Roblox",
+      "Lua",
+      "JavaScript",
+      "TypeScript",
+    ],
+    image: "/projects/game-gallery-overview/images/image.jpg",
+    mediaLayout: "grid",
+    medias: [
+      { type: "video", src: "/projects/game-gallery-overview/videos/1.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/2.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/3.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/4.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/5.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/6.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/7.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/8.mp4" },
+      { type: "video", src: "/projects/game-gallery-overview/videos/9.mp4" },
+    ],
+    features: [] as const,
+  },
 ] as const;
 
 export type Project = (typeof PROJECTS)[number] & {
   medias?: readonly ProjectMedia[];
   overview?: string;
   features?: readonly ProjectFeature[];
+  /** When "grid", project detail shows medias in a 3x3 grid instead of carousel */
+  mediaLayout?: "carousel" | "grid";
 };
 
 export function getProjectBySlug(slug: string): Project | undefined {

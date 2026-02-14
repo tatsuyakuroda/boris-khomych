@@ -6,6 +6,8 @@ import type { ProjectMedia } from "@/lib/projects";
 
 interface ProjectMediasProps {
   medias?: readonly ProjectMedia[] | null;
+  /** "grid" = 3×3 grid of all items; default = carousel */
+  layout?: "carousel" | "grid";
 }
 
 function preventMediaContextMenu(e: React.MouseEvent) {
@@ -15,14 +17,19 @@ function preventMediaContextMenu(e: React.MouseEvent) {
 function MediaItem({
   media,
   onContextMenu,
+  gridItem,
 }: {
   media: ProjectMedia;
   onContextMenu: (e: React.MouseEvent) => void;
+  gridItem?: boolean;
 }) {
+  const containerClass = gridItem
+    ? "relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-surface"
+    : "relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface select-none";
   if (media.type === "image") {
     return (
       <div
-        className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface select-none"
+        className={gridItem ? containerClass + " select-none" : containerClass}
         onContextMenu={onContextMenu}
       >
         <Image
@@ -39,16 +46,17 @@ function MediaItem({
   }
   if (media.type === "video") {
     return (
-      <div
-        className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface"
-        onContextMenu={onContextMenu}
-      >
+      <div className={containerClass} onContextMenu={onContextMenu}>
         <video
           src={media.src}
           controls
           controlsList="nodownload"
           className="h-full w-full object-contain"
-          preload="metadata"
+          preload="auto"
+          autoPlay
+          muted
+          playsInline
+          loop
           onContextMenu={onContextMenu}
         />
       </div>
@@ -56,10 +64,7 @@ function MediaItem({
   }
   if (media.type === "youtube") {
     return (
-      <div
-        className="relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface"
-        onContextMenu={onContextMenu}
-      >
+      <div className={containerClass} onContextMenu={onContextMenu}>
         <iframe
           src={`https://www.youtube.com/embed/${media.id}`}
           title="YouTube video"
@@ -73,7 +78,7 @@ function MediaItem({
   return null;
 }
 
-export default function ProjectMedias({ medias }: ProjectMediasProps) {
+export default function ProjectMedias({ medias, layout = "carousel" }: ProjectMediasProps) {
   const [index, setIndex] = useState(0);
   const length = medias?.length ?? 0;
 
@@ -86,6 +91,22 @@ export default function ProjectMedias({ medias }: ProjectMediasProps) {
   }, [length]);
 
   if (!length) return null;
+
+  if (layout === "grid") {
+    return (
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {medias!.map((media, i) => (
+          <MediaItem
+            key={i}
+            media={media}
+            onContextMenu={preventMediaContextMenu}
+            gridItem
+          />
+        ))}
+      </div>
+    );
+  }
+
   if (length === 1) {
     return (
       <div className="flex flex-col gap-4">
