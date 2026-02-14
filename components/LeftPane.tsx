@@ -6,9 +6,26 @@ import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 
 const EASE = [0.2, 0.8, 0.2, 1];
 
-const BIO_PARTS = [
-  "Senior software engineer with over 5 years of experience building reliable systems across Europe and the US — from web apps to games. I work with React, Next.js, Node.js, TypeScript, AWS, Docker, 3D web tools, and game development with Unity, Unreal Engine, C#, and related tech.",
-  "I care about clarity, stable systems, clean design, and crafting engaging experiences whether on the web or in game development.",
+const HIGHLIGHT = "font-bold text-white";
+
+const BIO_PARTS: React.ReactNode[] = [
+  <>
+    <span className={HIGHLIGHT}>Senior software engineer</span> with over{" "}
+    <span className={HIGHLIGHT}>5 years</span> of experience building{" "}
+    <span className={HIGHLIGHT}>reliable systems</span> across Europe and the US — from{" "}
+    <span className={HIGHLIGHT}>web apps to games</span>. I work with{" "}
+    <span className={HIGHLIGHT}>React, Next.js, Node.js, TypeScript, AWS, Docker</span>, 3D
+    web tools, and game development with{" "}
+    <span className={HIGHLIGHT}>Unity, Unreal Engine, C#</span>, and related tech.
+  </>,
+  <>
+    I care about <span className={HIGHLIGHT}>clarity</span>,{" "}
+    <span className={HIGHLIGHT}>stable systems</span>,{" "}
+    <span className={HIGHLIGHT}>clean design</span>, and crafting{" "}
+    <span className={HIGHLIGHT}>engaging experiences</span> whether on the{" "}
+    <span className={HIGHLIGHT}>web</span> or in{" "}
+    <span className={HIGHLIGHT}>game development</span>.
+  </>,
 ];
 
 const ROTATE_INTERVAL_MS = 5500;
@@ -111,7 +128,9 @@ export default function LeftPane() {
                 transition={{ duration: 0.45, ease: EASE }}
                 className="absolute inset-0 flex items-center py-4 pr-4 pl-4 sm:py-5 sm:pr-5 sm:pl-5"
               >
-                {BIO_PARTS[index]}
+                <span className="block w-full">
+                  {BIO_PARTS[index]}
+                </span>
               </motion.p>
             </AnimatePresence>
           )}
