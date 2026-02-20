@@ -28,7 +28,7 @@ const BIO_PARTS: React.ReactNode[] = [
   </>,
 ];
 
-const ROTATE_INTERVAL_MS = 5500;
+const ROTATE_INTERVAL_MS = 9000;
 
 export default function LeftPane() {
   const reducedMotion = useReducedMotion();
