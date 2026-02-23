@@ -109,7 +109,7 @@ export default function LeftPane() {
       </div>
 
       <motion.div
-          className="text-muted relative min-h-[14rem] min-w-0 overflow-hidden rounded-xl border border-border text-left text-base leading-relaxed p-4 sm:p-5 sm:text-xl md:text-2xl lg:text-3xl"
+          className="text-muted relative min-h-[18rem] min-w-0 overflow-y-auto rounded-xl border border-border text-left text-base leading-relaxed p-4 sm:p-5 sm:text-xl md:text-2xl lg:text-3xl"
           {...fadeUp}
           transition={{ duration: 0.7, ease: EASE, delay: stagger * 3 }}
         >
@@ -129,7 +129,7 @@ export default function LeftPane() {
                 transition={{ duration: 0.45, ease: EASE }}
                 className="absolute inset-0 flex items-center py-4 pr-4 pl-4 sm:py-5 sm:pr-5 sm:pl-5"
               >
-                <span className="block w-full">
+                <span className="block w-full py-2">
                   {BIO_PARTS[index]}
                 </span>
               </motion.p>
