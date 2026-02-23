@@ -282,6 +282,371 @@ export const PROJECTS = [
     ],
     features: [] as const,
   },
+  {
+    slug: "justap",
+    title: "JusTap",
+    impact:
+      "Mobile app for secure, easy exchange of contact information and social links using QR codes, replacing traditional business cards.",
+    overview:
+      "JusTap is a simple and secure app designed for those who want to easily exchange contact information and social links with others. Say goodbye to cluttered business cards and hello to the convenience of sharing all your important details through the use of QR codes.",
+    stack: ["Kotlin", "Jetpack Compose", "Firebase"],
+    image: "/projects/justap/images/JST-previe.png",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.binay.shaw.justap",
+    medias: [
+      { type: "image", src: "/projects/justap/images/jstap-one.png", alt: "JusTap screenshot 1" },
+      { type: "image", src: "/projects/justap/images/JStap-two.png", alt: "JusTap screenshot 2" },
+      { type: "image", src: "/projects/justap/images/JSTap-three.png", alt: "JusTap screenshot 3" },
+      { type: "image", src: "/projects/justap/images/JSTap-four.png", alt: "JusTap screenshot 4" },
+      { type: "image", src: "/projects/justap/images/JST-five.png", alt: "JusTap screenshot 5" },
+    ],
+    features: [
+      {
+        title: "Contact & Social Exchange",
+        items: [
+          "Exchange contact information and social links via QR codes.",
+          "Replace traditional business cards with a digital, instant solution.",
+          "Secure and simple flow for meeting new people and sharing details.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "readbud",
+    title: "ReadBud",
+    impact:
+      "Mobile app for reading and sharing stories, articles, and blogs—and for extracting jargon with meanings from scanned text or books.",
+    overview:
+      "ReadBud is an Android app used to extract jargon with its meaning from scanned images of a book or any form of text. It comes in handy when you're a beginner or want to save time by skipping the process of word meaning search on the Internet or any Dictionary. Extract jargon from pages and display their meanings without Internet access. Use camera access to capture picture(s) and get instant definitions.",
+    stack: ["Kotlin", "Jetpack Compose", "ML Kit"],
+    image: "/projects/readbud/images/readbud-preview.png",
+    storeUrl: "https://play.google.com/store/apps/details?id=com.binayshaw7777.readbud",
+    medias: [
+      { type: "image", src: "/projects/readbud/images/readbud-one.png", alt: "ReadBud screenshot 1" },
+      { type: "image", src: "/projects/readbud/images/readbud-two.png", alt: "ReadBud screenshot 2" },
+    ],
+    features: [
+      {
+        title: "Jargon Extraction",
+        items: [
+          "Extract jargon from scanned pages or any text using the device camera.",
+          "Display meanings offline—no Internet required after initial setup.",
+          "Streamlined flow: capture, extract, and view definitions in one place.",
+        ],
+      },
+      {
+        title: "Platform for Writers & Readers",
+        items: [
+          "Platform for writers to share stories and for readers to discover new content.",
+          "Supports stories, articles, and blogs in a single app.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "note-app",
+    title: "Note App",
+    impact:
+      "Android task manager with create/edit/delete tasks, reminders with alarms, and a Pomodoro-style focus timer for productivity.",
+    overview:
+      "The Note App is a feature-rich Android application built using Kotlin and Android Studio. It allows users to create, modify, and delete tasks, set reminders with alarms, and use a built-in focus timer to enhance productivity. Built with ConstraintLayout, RecyclerView, and CardView, it uses SharedPreferences for state and AlarmManager for notifications.",
+    stack: ["Kotlin", "ConstraintLayout", "RecyclerView", "CardView", "SharedPreferences", "AlarmManager"],
+    image: "/projects/note-app/images/note-prev.png",
+    medias: [
+      { type: "image", src: "/projects/note-app/images/note-one.png", alt: "Note App screenshot 1" },
+      { type: "image", src: "/projects/note-app/images/note-two.png", alt: "Note App screenshot 2" },
+      { type: "image", src: "/projects/note-app/images/note-three.png", alt: "Note App screenshot 3" },
+      { type: "image", src: "/projects/note-app/images/note-four.png", alt: "Note App screenshot 4" },
+    ],
+    features: [
+      {
+        title: "Task Management",
+        items: [
+          "Create new tasks with title and description.",
+          "Edit existing tasks (right swipe for edit).",
+          "Delete tasks easily (left swipe for delete).",
+        ],
+      },
+      {
+        title: "Reminders & Alarms",
+        items: [
+          "Set specific time and date for tasks.",
+          "Receive sound alerts when the task time arrives (AlarmManager, NotificationManager).",
+        ],
+      },
+      {
+        title: "Focus Timer",
+        items: [
+          "Pomodoro-style timer to stay focused (e.g. 30 minutes with circular progress).",
+          "Stop anytime; customizable session durations for productivity.",
+          "Implemented with CountDownTimer.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "the-flying-fish",
+    title: "The Flying Fish",
+    impact:
+      "Android game in Kotlin where players control a fish to avoid obstacles and collect points, with high score saving and replay.",
+    overview:
+      "The Flying Fish is an Android game developed with Kotlin where players control a fish to avoid obstacles and collect points. The game features animated touch controls, background music, collectible points with sound effects, and a high score system. With intuitive gameplay and a game over screen displaying scores and replay options, it offers an engaging and fun mobile gaming experience.",
+    stack: ["Kotlin", "Android"],
+    image: "/projects/the-flying-fish/images/flyingfish-prev.png",
+    medias: [
+      { type: "image", src: "/projects/the-flying-fish/images/flyingfish-one.png", alt: "The Flying Fish screenshot 1" },
+      { type: "image", src: "/projects/the-flying-fish/images/flyingfish-two.png", alt: "The Flying Fish screenshot 2" },
+      { type: "image", src: "/projects/the-flying-fish/images/flyingfish-three.png", alt: "The Flying Fish screenshot 3" },
+    ],
+    features: [
+      {
+        title: "Gameplay",
+        items: [
+          "Animated fish with touch controls.",
+          "Collectible points with sound effects.",
+          "Obstacles to avoid.",
+          "Background music.",
+        ],
+      },
+      {
+        title: "Progression & UX",
+        items: [
+          "High score saving.",
+          "Game over screen with option to play again.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "car-rental-app",
+    title: "Car Rental App",
+    impact:
+      "Flutter-based app for renting premium cars, with Firebase Firestore, BLoC architecture, and cross-platform support (Android, iOS, Web).",
+    overview:
+      "A Flutter-based mobile application for renting premium cars, integrated with Firebase Firestore for real-time data management. The app features a luxurious and responsive UI, structured with BLoC architecture, and supports cross-platform deployment on Android, iOS, and Web.",
+    stack: ["Flutter", "Dart", "Firebase", "Swift", "CMake", "C++"],
+    image: "/projects/car-rental-app/images/carent-prev.jpg",
+    medias: [
+      { type: "image", src: "/projects/car-rental-app/images/carent-one.jpg", alt: "Car Rental App screenshot 1" },
+      { type: "image", src: "/projects/car-rental-app/images/carent-two.jpg", alt: "Car Rental App screenshot 2" },
+      { type: "image", src: "/projects/car-rental-app/images/carent-three.jpg", alt: "Car Rental App screenshot 3" },
+    ],
+    features: [
+      {
+        title: "Screens & UX",
+        items: [
+          "Onboarding: premium welcome screen with rich UI, gold-accented title, and Get Started CTA.",
+          "Car list: browse premium cars (e.g. BMW X5, 3 Series) with Firestore data and search by model.",
+          "Car details: model, distance, fuel, price/hour, user avatar, map preview linking to location.",
+        ],
+      },
+      {
+        title: "Architecture & Data",
+        items: [
+          "Firestore integration for car data (cars collection) with safe parsing and real-time updates.",
+          "BLoC state management: CarsLoading, CarsLoaded, CarError.",
+          "Responsive UI with consistent theming, soft shadows, and smooth animations.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "wn-restaurant-mobile-app",
+    title: "WN Restaurant Mobile App",
+    impact:
+      "React Native (Expo) app for browsing food, cart, payments, and profile—connected to Node.js/Express and MongoDB, Android-focused.",
+    overview:
+      "React Native application built with Expo Go, serving as the user-facing counterpart to the restaurant web app. Users can browse food items, manage their cart, make payments, and update profiles, all connected to a Node.js/Express backend with MongoDB. Designed for Android, with admin features exclusive to the web version.",
+    stack: ["React Native", "Expo", "Node.js", "Express", "MongoDB", "JavaScript"],
+    image: "/projects/wn-restaurant-mobile-app/images/wn-restaurant-prev.png",
+    medias: [
+      { type: "image", src: "/projects/wn-restaurant-mobile-app/images/wn-restaurant-prev.png", alt: "WN Restaurant Mobile App" },
+    ],
+    features: [
+      {
+        title: "User Functionality",
+        items: [
+          "Splash, Home (food items from backend), Login, Register.",
+          "Cart (add to cart / buy now), Shopping Cart, PayNow, Payment confirmation.",
+          "Profile and Edit Profile.",
+        ],
+      },
+      {
+        title: "Backend & Data",
+        items: [
+          "Node.js backend shared with the restaurant management web app.",
+          "MongoDB for user and food data.",
+          "Cross-platform data access: same profiles, cart, and payments on mobile and web.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "ni-kshay-setu-v2",
+    title: "Ni-Kshay SETU (Frontend V2)",
+    impact:
+      "Redesigned frontend of a healthcare platform for TB care and decision support in India—web, Android, and iOS via React, React Native, and NX monorepo.",
+    overview:
+      "Ni-Kshay SETU V2 is the redesigned frontend of an impactful healthcare platform aimed at strengthening tuberculosis care and decision support for healthcare providers across India. Built as a monorepo using React, React Native, Redux, and TypeScript, the system delivers seamless experiences on the web, Android, and iOS, with interactive modules, real-time updates, and an intuitive UI for guideline-based learning, case simulations, and knowledge resources.",
+    stack: [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Redux",
+      "Redux Saga",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "NextAuth.js",
+      "Jest",
+      "React Testing Library",
+      "NX Monorepo",
+    ],
+    image: "/projects/ni-kshay-setu-v2/images/kshay-prev.png",
+    medias: [
+      { type: "image", src: "/projects/ni-kshay-setu-v2/images/kshay-one.png", alt: "Ni-Kshay SETU screenshot 1" },
+      { type: "image", src: "/projects/ni-kshay-setu-v2/images/kshay-two.png", alt: "Ni-Kshay SETU screenshot 2" },
+      { type: "image", src: "/projects/ni-kshay-setu-v2/images/kshay-three.png", alt: "Ni-Kshay SETU screenshot 3" },
+      { type: "image", src: "/projects/ni-kshay-setu-v2/images/kshay-four.png", alt: "Ni-Kshay SETU screenshot 4" },
+    ],
+    features: [
+      {
+        title: "Learning & Support",
+        items: [
+          "Interactive learning modules for healthcare workers.",
+          "Multi-language UI support and automated multilingual settings.",
+          "Subscriber monitoring dashboards and assessment creation/tracking.",
+          "Resource and document library; leaderboard and progress monitoring.",
+        ],
+      },
+      {
+        title: "Platform & Admin",
+        items: [
+          "Notification system and centralized news feed.",
+          "Master data management (states, districts, facilities).",
+          "Role-based permissions and admin controls.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "canstar-smart-led-control",
+    title: "Canstar Smart LED Control",
+    impact:
+      "Smart IoT lighting platform to connect, manage, and control multiple LED devices from anywhere—color control, presets, sync, and scheduling.",
+    overview:
+      "Canstar is a smart IoT lighting platform that enables users to connect, manage, and control multiple LED devices from anywhere. Built with a mobile app and ESP32-based hardware controllers, the system allows real-time color control, LED segment management, device synchronization, and automated scheduling. Users can group devices, apply lighting presets, set on/off timers, and manage dynamic lighting scenes through an intuitive interface.",
+    stack: ["React Native", "Node.js", "Firebase", "REST APIs", "ESP32", "Arduino", "MQTT", "WebSocket"],
+    image: "/projects/canstar-smart-led-control/images/canstar-led-prev.png",
+    medias: [
+      { type: "image", src: "/projects/canstar-smart-led-control/images/canstar-led-one.png", alt: "Canstar Smart LED screenshot 1" },
+      { type: "image", src: "/projects/canstar-smart-led-control/images/canstar-led-two.png", alt: "Canstar Smart LED screenshot 2" },
+      { type: "image", src: "/projects/canstar-smart-led-control/images/canstar-led-three.png", alt: "Canstar Smart LED screenshot 3" },
+      { type: "image", src: "/projects/canstar-smart-led-control/images/canstar-led-four.png", alt: "Canstar Smart LED screenshot 4" },
+      { type: "image", src: "/projects/canstar-smart-led-control/images/canstar-led-five.png", alt: "Canstar Smart LED screenshot 5" },
+    ],
+    features: [
+      {
+        title: "Device Control",
+        items: [
+          "Add and manage multiple LED devices.",
+          "Real-time color and brightness control; segment-wise LED control.",
+          "Create and save lighting presets; sync multiple devices for unified effects.",
+          "Remote control from anywhere via internet.",
+        ],
+      },
+      {
+        title: "Automation & Hardware",
+        items: [
+          "Schedule automatic on/off timers.",
+          "ESP32 firmware for LED communication; stable real-time device connection (MQTT/WebSocket).",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "fresh-cart",
+    title: "Fresh Cart",
+    impact:
+      "College capstone: digitized local grocery—browse stores, place orders, track status, UPI payments; store owners manage inventory and orders.",
+    overview:
+      "Fresh Cart is a college capstone project designed to digitize local grocery shopping. Users can browse nearby registered stores, place grocery orders, track order status, and complete payments using UPI. Store owners can register their shops, add inventory items, receive and manage orders, and mark deliveries as completed. The system was built as a native Android application using Java, focusing on practical end-to-end workflow implementation.",
+    stack: ["Java", "Android", "Firebase Realtime Database", "Firebase Authentication", "Firebase Cloud Storage", "REST APIs", "UPI"],
+    image: "/projects/fresh-cart/images/fresh-cart-prev.png",
+    medias: [
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-one.png", alt: "Fresh Cart screenshot 1" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-two.png", alt: "Fresh Cart screenshot 2" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-three.png", alt: "Fresh Cart screenshot 3" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-four.png", alt: "Fresh Cart screenshot 4" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-five.png", alt: "Fresh Cart screenshot 5" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-six.png", alt: "Fresh Cart screenshot 6" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-seven.png", alt: "Fresh Cart screenshot 7" },
+      { type: "image", src: "/projects/fresh-cart/images/fresh-cart-eight.png", alt: "Fresh Cart screenshot 8" },
+    ],
+    features: [
+      {
+        title: "Highlights",
+        items: [
+          "User + Store Owner dual application flow.",
+          "Real-time order tracking.",
+          "UPI payment integration.",
+          "Local store discovery.",
+        ],
+      },
+      {
+        title: "User Side",
+        items: [
+          "User registration and login (Firebase Authentication).",
+          "Nearby store listing and discovery; product browsing and cart.",
+          "Order placement and real-time status tracking (Firebase Realtime Database).",
+          "UPI-based payment flow.",
+        ],
+      },
+      {
+        title: "Store Owner Side",
+        items: [
+          "Store owner registration and inventory management.",
+          "Order management and completion system.",
+          "Firebase-based backend and storage.",
+        ],
+      },
+    ] as const,
+  },
+  {
+    slug: "innova-led-control",
+    title: "Innova LED Control",
+    impact:
+      "Initial IoT smart lighting app for remote LED control and real-time color/brightness—foundation for Canstar’s multi-device features.",
+    overview:
+      "Innova LED was the initial version of an IoT-based smart lighting platform, built to explore real-time device communication and remote LED control. The system allowed users to connect LED controllers, adjust colors and brightness, and manage lighting behavior through a mobile application. This project laid the foundation for advanced multi-device sync and scheduling features later implemented in Canstar.",
+    stack: ["React Native", "Node.js", "Firebase", "ESP32", "Arduino", "REST APIs"],
+    image: "/projects/innova-led-control/images/innova-led-prev.png",
+    medias: [
+      { type: "image", src: "/projects/innova-led-control/images/innova-led-one.png", alt: "Innova LED Control screenshot 1" },
+      { type: "image", src: "/projects/innova-led-control/images/innova-led-two.png", alt: "Innova LED Control screenshot 2" },
+      { type: "image", src: "/projects/innova-led-control/images/innova-led-three.png", alt: "Innova LED Control screenshot 3" },
+      { type: "image", src: "/projects/innova-led-control/images/innova-led-four.png", alt: "Innova LED Control screenshot 4" },
+    ],
+    features: [
+      {
+        title: "Highlights",
+        items: [
+          "First iteration of IoT lighting platform.",
+          "Remote LED color and brightness control.",
+          "ESP32 hardware integration.",
+          "Foundation for next-gen Canstar system.",
+        ],
+      },
+      {
+        title: "Control & Hardware",
+        items: [
+          "Connect LED controller via mobile app.",
+          "Real-time color adjustment and brightness control.",
+          "Remote on/off switching; ESP32-based LED communication.",
+          "Basic device connection management; cloud-based remote access.",
+        ],
+      },
+    ] as const,
+  },
 ] as const;
 
 export type Project = (typeof PROJECTS)[number] & {
@@ -290,6 +655,8 @@ export type Project = (typeof PROJECTS)[number] & {
   features?: readonly ProjectFeature[];
   /** When "grid", project detail shows medias in a 3x3 grid instead of carousel */
   mediaLayout?: "carousel" | "grid";
+  /** Optional Play Store or App Store URL for mobile apps */
+  storeUrl?: string;
 };
 
 export function getProjectBySlug(slug: string): Project | undefined {

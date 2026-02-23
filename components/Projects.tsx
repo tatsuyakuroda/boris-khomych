@@ -1,6 +1,7 @@
 "use client";
 
 import { PROJECTS } from "@/lib/projects";
+import { getTechIconUrl } from "@/lib/tech-icons";
 import { motion, useReducedMotion } from "framer-motion";
 
 export default function Projects() {
@@ -29,13 +30,26 @@ export default function Projects() {
                 {project.impact}
               </p>
               <ul className="flex flex-wrap gap-2 list-none p-0 m-0">
-                {project.stack.map((tech) => (
-                  <li key={tech}>
-                    <span className="rounded-md border border-border bg-bg px-2 py-1 font-mono text-xs text-muted">
-                      {tech}
-                    </span>
-                  </li>
-                ))}
+                {project.stack.map((tech) => {
+                  const iconUrl = getTechIconUrl(tech);
+                  return (
+                    <li key={tech}>
+                      <span className="inline-flex items-center gap-1.5 rounded-md border border-border bg-bg px-2 py-1 font-mono text-xs text-muted">
+                        {iconUrl ? (
+                          <img
+                            src={iconUrl}
+                            alt=""
+                            width={14}
+                            height={14}
+                            className="shrink-0"
+                            aria-hidden
+                          />
+                        ) : null}
+                        {tech}
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
             </motion.article>
           </li>

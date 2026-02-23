@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import type { ProjectMedia } from "@/lib/projects";
 
@@ -23,20 +23,24 @@ function MediaItem({
   onContextMenu: (e: React.MouseEvent) => void;
   gridItem?: boolean;
 }) {
-  const containerClass = gridItem
+  const imageContainerClass = gridItem
+    ? "relative flex min-h-[10rem] w-full items-center justify-center overflow-hidden rounded-xl border border-border bg-surface"
+    : "relative flex min-h-[10rem] w-full max-w-2xl items-center justify-center overflow-hidden rounded-xl border border-border bg-surface select-none";
+  const videoContainerClass = gridItem
     ? "relative aspect-video w-full overflow-hidden rounded-xl border border-border bg-surface"
-    : "relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface select-none";
+    : "relative aspect-video w-full max-w-2xl overflow-hidden rounded-xl border border-border bg-surface";
   if (media.type === "image") {
     return (
       <div
-        className={gridItem ? containerClass + " select-none" : containerClass}
+        className={gridItem ? imageContainerClass + " select-none" : imageContainerClass}
         onContextMenu={onContextMenu}
       >
         <Image
           src={media.src}
           alt={media.alt ?? ""}
-          fill
-          className="object-cover"
+          width={400}
+          height={800}
+          className="max-h-[70vh] w-auto max-w-full object-contain"
           sizes="(max-width: 768px) 100vw, 672px"
           draggable={false}
           onContextMenu={onContextMenu}
@@ -46,7 +50,7 @@ function MediaItem({
   }
   if (media.type === "video") {
     return (
-      <div className={containerClass} onContextMenu={onContextMenu}>
+      <div className={videoContainerClass} onContextMenu={onContextMenu}>
         <video
           src={media.src}
           controls
@@ -64,7 +68,7 @@ function MediaItem({
   }
   if (media.type === "youtube") {
     return (
-      <div className={containerClass} onContextMenu={onContextMenu}>
+      <div className={videoContainerClass} onContextMenu={onContextMenu}>
         <iframe
           src={`https://www.youtube.com/embed/${media.id}`}
           title="YouTube video"
@@ -78,6 +82,8 @@ function MediaItem({
   return null;
 }
 
+const CAROUSEL_INTERVAL_MS = 3000;
+
 export default function ProjectMedias({ medias, layout = "carousel" }: ProjectMediasProps) {
   const [index, setIndex] = useState(0);
   const length = medias?.length ?? 0;
@@ -89,6 +95,14 @@ export default function ProjectMedias({ medias, layout = "carousel" }: ProjectMe
   const goNext = useCallback(() => {
     setIndex((i) => (i + 1) % length);
   }, [length]);
+
+  useEffect(() => {
+    if (layout !== "carousel" || length <= 1) return;
+    const id = setInterval(() => {
+      setIndex((i) => (i + 1) % length);
+    }, CAROUSEL_INTERVAL_MS);
+    return () => clearInterval(id);
+  }, [layout, length]);
 
   if (!length) return null;
 

@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import Image from "next/image";
 import { gsap } from "gsap";
+import { getTechIconUrl } from "@/lib/tech-icons";
 import "./ChromaGrid.css";
 
 export interface ChromaGridItem {
@@ -164,11 +165,24 @@ export function ChromaGrid({
             <p className="chroma-role">{c.subtitle}</p>
             {c.stack?.length > 0 && (
               <div className="chroma-stack">
-                {c.stack.map((tech) => (
-                  <span key={tech} className="chroma-stack-tag">
-                    {tech}
-                  </span>
-                ))}
+                {c.stack.map((tech) => {
+                  const iconUrl = getTechIconUrl(tech);
+                  return (
+                    <span key={tech} className="chroma-stack-tag">
+                      {iconUrl ? (
+                        <img
+                          src={iconUrl}
+                          alt=""
+                          width={14}
+                          height={14}
+                          className="chroma-stack-icon"
+                          aria-hidden
+                        />
+                      ) : null}
+                      {tech}
+                    </span>
+                  );
+                })}
               </div>
             )}
           </footer>

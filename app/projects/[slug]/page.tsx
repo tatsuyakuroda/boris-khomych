@@ -43,12 +43,13 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </Link>
 
         <article className="flex flex-col gap-6">
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-border bg-surface">
+          <div className="relative flex min-h-[12rem] w-full items-center justify-center overflow-hidden rounded-2xl border border-border bg-surface">
             <Image
               src={project.image}
               alt={`${project.title} — preview`}
-              fill
-              className="object-cover"
+              width={768}
+              height={1024}
+              className="max-h-[70vh] w-auto max-w-full object-contain"
               sizes="(max-width: 768px) 100vw, 768px"
               priority
             />
@@ -61,6 +62,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <p className="text-muted mt-2 text-base leading-relaxed sm:text-lg">
               {project.impact}
             </p>
+            {"storeUrl" in project && project.storeUrl && (
+              <a
+                href={project.storeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gold hover:underline mt-3 inline-flex items-center gap-2 text-sm font-medium"
+              >
+                Get it on Google Play
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4" aria-hidden>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
+                </svg>
+              </a>
+            )}
           </header>
 
           <div>
