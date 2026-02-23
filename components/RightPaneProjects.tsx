@@ -1,10 +1,14 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { useReducedMotion } from "framer-motion";
-import { PROJECTS } from "@/lib/projects";
-import type { Project } from "@/lib/projects";
+import {
+  filterProjectsByCategory,
+  getActiveCategories,
+  type Project,
+  type ProjectCategory,
+} from "@/lib/projects";
 import ShinyText from "@/components/ShinyText";
 import ChromaGrid, { type ChromaGridItem } from "@/components/ChromaGrid";
 
@@ -41,8 +45,17 @@ export default function RightPaneProjects() {
   const reducedMotion = useReducedMotion();
   const containerRef = useRef<HTMLElement>(null);
   const router = useRouter();
+  const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>("All");
 
-  const chromaItems = PROJECTS.map((p, i) => projectToChromaItem(p, i));
+  const filteredProjects = useMemo(
+    () => filterProjectsByCategory(selectedCategory),
+    [selectedCategory]
+  );
+  const chromaItems = useMemo(
+    () => filteredProjects.map((p, i) => projectToChromaItem(p, i)),
+    [filteredProjects]
+  );
+  const activeCategories = useMemo(() => getActiveCategories(), []);
 
   const handleCardClick = (item: ChromaGridItem) => {
     const project = (item as ChromaGridItem & { data: Project }).data;
@@ -57,25 +70,57 @@ export default function RightPaneProjects() {
       aria-labelledby="projects-heading"
     >
       <div className="container-custom flex min-w-0 flex-col gap-8 py-8 sm:gap-10 sm:py-12 lg:py-16">
-        <h2
-          id="projects-heading"
-          className="sticky top-0 z-10 -mx-4 -mt-8 bg-bg px-4 pt-8 pb-3 text-xl font-semibold sm:-mx-6 sm:-mt-12 sm:px-6 sm:pt-12 sm:pb-4 sm:text-2xl lg:-mt-16 lg:pt-16 lg:text-3xl"
-        >
-          <ShinyText
-            text="🔰 My Recent Projects "
-            speed={2}
-            delay={0}
-            color="#a4a7ac"
-            shineColor="#ffffff"
-            spread={120}
-            direction="left"
-            yoyo={false}
-            pauseOnHover={false}
-            disabled={reducedMotion ?? false}
-          />
-        </h2>
+        <div className="sticky top-0 z-10 -mx-4 -mt-8 bg-bg px-4 pt-8 pb-3 sm:-mx-6 sm:-mt-12 sm:px-6 sm:pt-12 sm:pb-4 lg:-mt-16 lg:pt-16">
+          <h2
+            id="projects-heading"
+            className="text-xl font-semibold sm:text-2xl lg:text-3xl"
+          >
+            <ShinyText
+              text="🔰 My Recent Projects "
+              speed={2}
+              delay={0}
+              color="#a4a7ac"
+              shineColor="#ffffff"
+              spread={120}
+              direction="left"
+              yoyo={false}
+              pauseOnHover={false}
+              disabled={reducedMotion ?? false}
+            />
+          </h2>
+          <div
+            className="mt-4 flex flex-wrap gap-2"
+            role="tablist"
+            aria-label="Filter projects by category"
+          >
+            {activeCategories.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                role="tab"
+                aria-selected={selectedCategory === cat}
+                aria-controls="projects-grid"
+                id={`filter-${cat.toLowerCase()}`}
+                onClick={() => setSelectedCategory(cat)}
+                className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg ${
+                  selectedCategory === cat
+                    ? "border-gold bg-gold/15 text-gold"
+                    : "border-border bg-surface text-muted hover:border-muted hover:text-text"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
 
-        <div className="min-h-[400px] w-full min-w-0 sm:min-h-[500px]" style={{ position: "relative" }}>
+        <div
+          id="projects-grid"
+          className="min-h-[400px] w-full min-w-0 sm:min-h-[500px]"
+          style={{ position: "relative" }}
+          role="tabpanel"
+          aria-labelledby="projects-heading"
+        >
           <ChromaGrid
             items={chromaItems}
             radius={300}
@@ -83,7 +128,7 @@ export default function RightPaneProjects() {
             fadeOut={0.6}
             ease="power3.out"
             columns={2}
-            rows={Math.ceil(PROJECTS.length / 2)}
+            rows={Math.ceil(chromaItems.length / 2) || 1}
             onCardClick={handleCardClick}
             disabled={reducedMotion ?? false}
           />

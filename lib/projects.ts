@@ -7,9 +7,14 @@ export type ProjectMedia =
 /** Optional long-form overview and key features for a project case study */
 export type ProjectFeature = { title: string; items: readonly string[] };
 
+/** Categories for filtering projects on the portfolio */
+export const PROJECT_CATEGORIES = ["All", "Web", "Mobile", "Game", "IoT", "Healthcare"] as const;
+export type ProjectCategory = (typeof PROJECT_CATEGORIES)[number];
+
 export const PROJECTS = [
   {
     slug: "claims-ai-platform",
+    category: "Healthcare" as const,
     title: "Claims AI Platform (Healthcare)",
     impact:
       "Automated medical document extraction & chart audits with explainable AI workflows.",
@@ -75,6 +80,7 @@ export const PROJECTS = [
   },
   {
     slug: "novmuser-ai",
+    category: "Web" as const,
     title: "Novmuser AI (AI Novel Writing Platform)",
     impact:
       "AI-powered writing companion for planning, generating, and managing long-form fiction with collaborative agent workflows.",
@@ -137,6 +143,7 @@ export const PROJECTS = [
   },
   {
     slug: "rentana",
+    category: "Web" as const,
     title: "Rentana (AI Revenue Intelligence for Multifamily)",
     impact:
       "AI-powered revenue intelligence platform that optimizes multifamily rent pricing, asset performance, and reporting with explainable, data-driven recommendations.",
@@ -204,6 +211,7 @@ export const PROJECTS = [
   },
   {
     slug: "superyach",
+    category: "Web" as const,
     title: "SuperYach (SuperYacht UNIWERSE)",
     impact:
       "Immersive 3D web platform that showcases superyachts in a unique digital space, combining innovative web technologies with high-end visual content.",
@@ -252,6 +260,7 @@ export const PROJECTS = [
   },
   {
     slug: "game-gallery-overview",
+    category: "Game" as const,
     title: "Game Gallery",
     impact:
       "A gallery of game projects and demos showcasing gameplay, mechanics, and visual style across multiple titles.",
@@ -284,6 +293,7 @@ export const PROJECTS = [
   },
   {
     slug: "justap",
+    category: "Mobile" as const,
     title: "JusTap",
     impact:
       "Mobile app for secure, easy exchange of contact information and social links using QR codes, replacing traditional business cards.",
@@ -312,6 +322,7 @@ export const PROJECTS = [
   },
   {
     slug: "readbud",
+    category: "Mobile" as const,
     title: "ReadBud",
     impact:
       "Mobile app for reading and sharing stories, articles, and blogs—and for extracting jargon with meanings from scanned text or books.",
@@ -344,6 +355,7 @@ export const PROJECTS = [
   },
   {
     slug: "note-app",
+    category: "Mobile" as const,
     title: "Note App",
     impact:
       "Android task manager with create/edit/delete tasks, reminders with alarms, and a Pomodoro-style focus timer for productivity.",
@@ -385,6 +397,7 @@ export const PROJECTS = [
   },
   {
     slug: "the-flying-fish",
+    category: "Game" as const,
     title: "The Flying Fish",
     impact:
       "Android game in Kotlin where players control a fish to avoid obstacles and collect points, with high score saving and replay.",
@@ -418,6 +431,7 @@ export const PROJECTS = [
   },
   {
     slug: "car-rental-app",
+    category: "Mobile" as const,
     title: "Car Rental App",
     impact:
       "Flutter-based app for renting premium cars, with Firebase Firestore, BLoC architecture, and cross-platform support (Android, iOS, Web).",
@@ -451,6 +465,7 @@ export const PROJECTS = [
   },
   {
     slug: "wn-restaurant-mobile-app",
+    category: "Mobile" as const,
     title: "WN Restaurant Mobile App",
     impact:
       "React Native (Expo) app for browsing food, cart, payments, and profile—connected to Node.js/Express and MongoDB, Android-focused.",
@@ -482,6 +497,7 @@ export const PROJECTS = [
   },
   {
     slug: "ni-kshay-setu-v2",
+    category: "Healthcare" as const,
     title: "Ni-Kshay SETU (Frontend V2)",
     impact:
       "Redesigned frontend of a healthcare platform for TB care and decision support in India—web, Android, and iOS via React, React Native, and NX monorepo.",
@@ -530,6 +546,7 @@ export const PROJECTS = [
   },
   {
     slug: "canstar-smart-led-control",
+    category: "IoT" as const,
     title: "Canstar Smart LED Control",
     impact:
       "Smart IoT lighting platform to connect, manage, and control multiple LED devices from anywhere—color control, presets, sync, and scheduling.",
@@ -565,6 +582,7 @@ export const PROJECTS = [
   },
   {
     slug: "fresh-cart",
+    category: "Mobile" as const,
     title: "Fresh Cart",
     impact:
       "College capstone: digitized local grocery—browse stores, place orders, track status, UPI payments; store owners manage inventory and orders.",
@@ -613,6 +631,7 @@ export const PROJECTS = [
   },
   {
     slug: "innova-led-control",
+    category: "IoT" as const,
     title: "Innova LED Control",
     impact:
       "Initial IoT smart lighting app for remote LED control and real-time color/brightness—foundation for Canstar’s multi-device features.",
@@ -650,6 +669,7 @@ export const PROJECTS = [
 ] as const;
 
 export type Project = (typeof PROJECTS)[number] & {
+  category?: ProjectCategory;
   medias?: readonly ProjectMedia[];
   overview?: string;
   features?: readonly ProjectFeature[];
@@ -658,6 +678,19 @@ export type Project = (typeof PROJECTS)[number] & {
   /** Optional Play Store or App Store URL for mobile apps */
   storeUrl?: string;
 };
+
+export function filterProjectsByCategory(
+  category: ProjectCategory
+): Project[] {
+  if (category === "All") return [...PROJECTS] as Project[];
+  return (PROJECTS as readonly Project[]).filter((p) => p.category === category);
+}
+
+/** Categories that have at least one project (for filter pills) */
+export function getActiveCategories(): ProjectCategory[] {
+  const used = new Set((PROJECTS as readonly Project[]).map((p) => p.category).filter(Boolean));
+  return ["All", ...PROJECT_CATEGORIES.filter((c) => c !== "All" && used.has(c))];
+}
 
 export function getProjectBySlug(slug: string): Project | undefined {
   return PROJECTS.find((p) => p.slug === slug);
