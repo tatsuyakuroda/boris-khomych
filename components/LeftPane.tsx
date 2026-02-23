@@ -13,9 +13,10 @@ const BIO_PARTS: React.ReactNode[] = [
     <span className={HIGHLIGHT}>Senior software engineer</span> with over{" "}
     <span className={HIGHLIGHT}>5 years</span> of experience building{" "}
     <span className={HIGHLIGHT}>reliable systems</span> across Europe and the US — from{" "}
-    <span className={HIGHLIGHT}>web apps to games</span>. I work with{" "}
+    <span className={HIGHLIGHT}>web apps and mobile to games</span>. I work with{" "}
     <span className={HIGHLIGHT}>React, Next.js, Node.js, TypeScript, AWS, Docker</span>, 3D
-    web tools, and game development with{" "}
+    web tools, <span className={HIGHLIGHT}>mobile development</span> with React Native, Flutter &
+    Kotlin, and game development with{" "}
     <span className={HIGHLIGHT}>Unity, Unreal Engine, C#</span>, and related tech.
   </>,
   <>
@@ -23,7 +24,7 @@ const BIO_PARTS: React.ReactNode[] = [
     <span className={HIGHLIGHT}>stable systems</span>,{" "}
     <span className={HIGHLIGHT}>clean design</span>, and crafting{" "}
     <span className={HIGHLIGHT}>engaging experiences</span> whether on the{" "}
-    <span className={HIGHLIGHT}>web</span> or in{" "}
+    <span className={HIGHLIGHT}>web</span>, in <span className={HIGHLIGHT}>mobile apps</span>, or in{" "}
     <span className={HIGHLIGHT}>game development</span>.
   </>,
 ];
