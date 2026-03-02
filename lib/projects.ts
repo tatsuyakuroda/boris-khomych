@@ -4,8 +4,23 @@ export type ProjectMedia =
   | { type: "video"; src: string }
   | { type: "youtube"; id: string };
 
+/** Table data for feature display */
+export type ProjectFeatureTable = {
+  headers: readonly string[];
+  rows: readonly (readonly (string | number)[])[];
+};
+
 /** Optional long-form overview and key features for a project case study */
-export type ProjectFeature = { title: string; items: readonly string[] };
+export type ProjectFeature = {
+  title: string;
+  items?: readonly string[];
+  /** Optional image to display (e.g. diagram) */
+  image?: string;
+  /** Optional multiple images displayed in a 2×2 grid */
+  images?: readonly string[];
+  /** Optional HTML table data (headers + rows) */
+  table?: ProjectFeatureTable;
+};
 
 /** Categories for filtering projects on the portfolio */
 export const PROJECT_CATEGORIES = ["All", "Web", "Mobile", "Game", "IoT", "Healthcare"] as const;
@@ -303,6 +318,31 @@ export const PROJECTS = [
         ],
       },
       {
+        title: "Example Real-Time Bluetooth Sensor Data (BITalino PPG + EDA)",
+        table: {
+          headers: [
+            "Time (s)",
+            "Heart Rate (BPM)",
+            "HRV (RMSSD ms)",
+            "HRV Coherence (%)",
+            "Skin Conductance (µS)",
+            "SCL Trend",
+            "Notes / Feedback State",
+          ],
+          rows: [
+            [0, 92, 28, 45, 4.2, "Stable", "Starting, mild arousal"],
+            [5, 88, 32, 52, 3.9, "↓ Slight", "Beginning to relax"],
+            [10, 85, 38, 61, 3.5, "↓", "Breathing exercise"],
+            [15, 82, 45, 68, 3.1, "↓", "Good coherence building"],
+            [20, 79, 52, 75, 2.8, "↓", "Balloons starting to rise"],
+            [25, 76, 58, 82, 2.6, "Stable", "Deep calm achieved"],
+            [30, 74, 62, 88, 2.5, "Stable", "Non-striving phase"],
+            [35, 72, 65, 92, 2.4, "↓ Slight", "Rocks descending"],
+            [40, 71, 68, 95, 2.3, "↓", "Peak relaxation"],
+          ],
+        },
+      },
+      {
         title: "Interactive Exercises",
         items: [
           "Multiple interactive exercises: distinct visual themes teaching breathing coherence, physiological calming, and mindful letting go.",
@@ -313,6 +353,15 @@ export const PROJECTS = [
         items: [
           "Offline, user-friendly experience: simple multilingual menu, no accounts or internet needed, optimized for accessibility.",
           "Cross-platform deployment: stable Windows and macOS builds with smooth performance and robust Bluetooth handling.",
+        ],
+      },
+      {
+        title: "Real-Time Biofeedback Dashboards",
+        images: [
+          "/projects/calming-scenes-emotional-wellness/images/pulse-curve-calm-1024x576.png",
+          "/projects/calming-scenes-emotional-wellness/images/Skin-Response-Main-Landscape-DE-1024x702.png",
+          "/projects/calming-scenes-emotional-wellness/images/skin-response-measurement-curve-1-1024x576.png",
+          "/projects/calming-scenes-emotional-wellness/images/Skin-Response-Measurement-Curve-1024x578.png",
         ],
       },
     ] as const,
