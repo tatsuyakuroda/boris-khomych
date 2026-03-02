@@ -259,6 +259,65 @@ export const PROJECTS = [
     ] as const,
   },
   {
+    slug: "calming-scenes-emotional-wellness",
+    category: "Healthcare" as const,
+    title: "Calming Scenes for Emotional Wellness",
+    impact:
+      "Unity-based biofeedback app helping children master relaxation through real-time physiological feedback and enchanting 3D metaphors.",
+    overview:
+      "Created a captivating Unity-based biofeedback application that empowers children to master relaxation techniques through real-time physiological feedback (heart rate variability and skin conductance). Using modern sensors and Bluetooth integration, the experience transforms body signals into enchanting 3D metaphors—such as rising balloons for coherent breathing and gently descending rocks for non-striving mindfulness—within warm, dreamlike HDRP environments. Delivered as a complete rebuild with polished visuals, cross-platform support (Windows/macOS), and an intuitive offline interface. This project demonstrates expertise in blending interactive sensor data, high-fidelity 3D art, and therapeutic design to create emotionally supportive experiences that feel truly magical and comforting.",
+    stack: [
+      "Unity",
+      "C#",
+      "HDRP",
+      "Bluetooth",
+      "Biofeedback sensors (PPG, EDA)",
+      "Signal processing",
+      "Windows",
+      "macOS",
+    ],
+    image: "/projects/calming-scenes-emotional-wellness/images/2ee7db83-322e-44af-91e1-3ef9bf4c4d9d.jpg",
+    medias: [
+      { type: "video", src: "/projects/calming-scenes-emotional-wellness/videos/video1.mp4" },
+      { type: "video", src: "/projects/calming-scenes-emotional-wellness/videos/video2.mp4" },
+      { type: "video", src: "/projects/calming-scenes-emotional-wellness/videos/video3.mp4" },
+      { type: "image", src: "/projects/calming-scenes-emotional-wellness/images/2ee7db83-322e-44af-91e1-3ef9bf4c4d9d.jpg" },
+      { type: "image", src: "/projects/calming-scenes-emotional-wellness/images/21ad4416-90a1-4c00-899d-80b68cb4cf43.jpg" },
+      { type: "image", src: "/projects/calming-scenes-emotional-wellness/images/241bab86-6c0e-4bd0-ad57-3bd45851b0d3.jpg" },
+      { type: "image", src: "/projects/calming-scenes-emotional-wellness/images/a2c0a1ea-0417-4486-93f0-3a1a69c3fa3c.jpg" },
+    ],
+    features: [
+      {
+        title: "High-Fidelity 3D & Emotional Design",
+        items: [
+          "High-fidelity 3D scenes in Unity HDRP: soft volumetric lighting, bloom effects, particle systems, and warm pastel palettes creating a gentle, enchanting atmosphere.",
+          "Child-centered design: endearing, non-clinical aesthetics with subtle animations and magical elements to foster comfort and engagement.",
+          "Therapeutic visual focus: prioritized emotional warmth and \"magical yet gentle\" polish to support sensitive users effectively.",
+        ],
+      },
+      {
+        title: "Biofeedback & Sensor Integration",
+        items: [
+          "Real-time biofeedback mechanics: Bluetooth sensor data (PPG for HRV, EDA for skin conductance) drives dynamic visual responses in calming metaphors.",
+          "Seamless sensor integration: custom signal processing pipeline for clean, reliable HRV/GSR calculations and responsive feedback.",
+        ],
+      },
+      {
+        title: "Interactive Exercises",
+        items: [
+          "Multiple interactive exercises: distinct visual themes teaching breathing coherence, physiological calming, and mindful letting go.",
+        ],
+      },
+      {
+        title: "Delivery & Accessibility",
+        items: [
+          "Offline, user-friendly experience: simple multilingual menu, no accounts or internet needed, optimized for accessibility.",
+          "Cross-platform deployment: stable Windows and macOS builds with smooth performance and robust Bluetooth handling.",
+        ],
+      },
+    ] as const,
+  },
+  {
     slug: "game-gallery-overview",
     category: "Game" as const,
     title: "Game Gallery",
