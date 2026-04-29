@@ -11,7 +11,7 @@ const HIGHLIGHT = "font-bold text-white";
 const BIO_PARTS: React.ReactNode[] = [
   <>
     <span className={HIGHLIGHT}>Senior software engineer</span> with over{" "}
-    <span className={HIGHLIGHT}>5 years</span> of experience building{" "}
+    <span className={HIGHLIGHT}>7+ years</span> of experience building{" "}
     <span className={HIGHLIGHT}>reliable systems</span> across Europe and the US — from{" "}
     <span className={HIGHLIGHT}>web apps and mobile to games</span>. I work with{" "}
     <span className={HIGHLIGHT}>React, Next.js, Node.js, TypeScript, AWS, Docker</span>, 3D
@@ -66,8 +66,8 @@ export default function LeftPane() {
         >
           <div className="relative aspect-square w-full max-w-[min(100%,22rem)] overflow-hidden rounded-2xl border border-[#3C3F46] bg-surface shadow-lg sm:max-w-none sm:aspect-auto sm:h-72 sm:w-72 md:h-80 md:w-80 lg:h-96 lg:w-96 xl:h-[28rem] xl:w-[28rem]">
             <Image
-              src="/portrait.jpg"
-              alt="Juan Carlos Rios Gamez — portrait"
+              src="/Borys.png"
+              alt="Borys Khomych — portrait"
               width={448}
               height={448}
               priority
@@ -96,14 +96,14 @@ export default function LeftPane() {
             {...fadeUp}
             transition={{ duration: 0.7, ease: EASE, delay: stagger * 1 }}
           >
-            Juan Carlos Rios Gamez
+            Borys Khomych
           </motion.h1>
           <motion.p
             className="text-gold text-lg font-medium"
             {...fadeUp}
             transition={{ duration: 0.7, ease: EASE, delay: stagger * 2 }}
           >
-            5+ Years Of Experience In Software Engineering
+            7+ Years Of Experience In Software Engineering
           </motion.p>
         </div>
       </div>

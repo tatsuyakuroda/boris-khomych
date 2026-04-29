@@ -15,12 +15,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Juan Carlos Rios Gamez — Senior Software Engineer",
+  title: "Borys Khomych — Senior Software Engineer",
   description:
     "Developer building reliable, scalable systems.",
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "Juan Carlos Rios Gamez — Senior Software Engineer",
+    title: "Borys Khomych — Senior Software Engineer",
     description:
       "Developer building reliable, scalable systems.",
   },

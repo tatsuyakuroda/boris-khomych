@@ -65,7 +65,7 @@ export default function Header() {
           className="font-semibold text-text no-underline transition-colors hover:text-blue focus:outline-none focus-visible:ring-2 focus-visible:ring-blue focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded"
           onClick={(e) => handleNavClick(e, "#hero")}
         >
-          Juan Carlos Rios Gamez
+          Borys Khomych
         </Link>
 
         <ul className="flex list-none flex-wrap items-center gap-6 gap-x-4 p-0 m-0">

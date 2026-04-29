@@ -42,7 +42,7 @@ export default function Hero() {
             className="text-3xl font-bold tracking-tight text-text sm:text-4xl md:text-5xl"
             {...textMotion}
           >
-            Juan Carlos Rios Gamez
+            Borys Khomych
           </motion.h1>
           <motion.p
             className="text-lg font-medium text-gold"
@@ -79,8 +79,8 @@ export default function Hero() {
         >
           <div className="relative h-56 w-56 overflow-hidden rounded-2xl border border-border bg-surface sm:h-72 sm:w-72">
             <Image
-              src="/juan.png"
-              alt="Juan Carlos Rios Gamez — portrait"
+              src="/Borys.png"
+              alt="Borys Khomych — portrait"
               width={288}
               height={288}
               priority
